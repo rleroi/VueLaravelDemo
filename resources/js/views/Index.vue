@@ -6,7 +6,7 @@
 			</div>
 
 			<template v-if="articles.length">
-				<div v-for="(article, index) in articles" class="col-md-12 mb-3">
+				<div v-for="(article, index) in articles" :key="article.id" class="col-md-12 mb-3">
 					<div class="card">
 						<h3 class="card-header">
 							<router-link :to="`/view/${article.id}`">{{ article.subject }}</router-link>

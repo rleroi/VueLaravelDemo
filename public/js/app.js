@@ -1777,6 +1777,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2107,7 +2122,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\nbody {\n\tpadding-top: 120px;\n}\n", ""]);
+exports.push([module.i, "\nbody {\n\tpadding-top: 120px;\n}\n.opacity-enter,\n.opacity-leave-to {\n\topacity: 0;\n}\n.opacity-enter-to,\n.opacity-leave {\n\topacity: 1;\n}\n.opacity-leave-active,\n.opacity-enter-active {\n\ttransition: opacity 100ms ease;\n}\n\n", ""]);
 
 // exports
 
@@ -3310,7 +3325,19 @@ var render = function() {
     [
       _c("Navbar"),
       _vm._v(" "),
-      _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c(
+            "transition",
+            { attrs: { name: "opacity", mode: "out-in", appear: "" } },
+            [_c("router-view")],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -3435,103 +3462,113 @@ var render = function() {
         _vm._v(" "),
         _vm.articles.length
           ? _vm._l(_vm.articles, function(article, index) {
-              return _c("div", { staticClass: "col-md-12 mb-3" }, [
-                _c("div", { staticClass: "card" }, [
-                  _c(
-                    "h3",
-                    { staticClass: "card-header" },
-                    [
-                      _c(
-                        "router-link",
-                        { attrs: { to: "/view/" + article.id } },
-                        [_vm._v(_vm._s(article.subject))]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "btn-group float-right",
-                          attrs: { role: "group" }
-                        },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-sm btn-info",
-                              attrs: {
-                                to: "/edit/" + article.id,
-                                tag: "button"
-                              }
-                            },
-                            [_vm._v("Bewerken")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-sm btn-danger",
-                              on: {
-                                click: function($event) {
-                                  _vm.deleteArticle(article.id, index)
+              return _c(
+                "div",
+                { key: article.id, staticClass: "col-md-12 mb-3" },
+                [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "h3",
+                      { staticClass: "card-header" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/view/" + article.id } },
+                          [_vm._v(_vm._s(article.subject))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "btn-group float-right",
+                            attrs: { role: "group" }
+                          },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-sm btn-info",
+                                attrs: {
+                                  to: "/edit/" + article.id,
+                                  tag: "button"
                                 }
-                              }
-                            },
-                            [_vm._v("Verwijderen")]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(
-                        "Op " +
-                          _vm._s(_vm.parseDate(article.created_at)) +
-                          " door "
-                      ),
-                      _c(
-                        "span",
-                        { staticClass: "badge badge-pill badge-secondary" },
-                        [_vm._v(_vm._s(article.author))]
-                      )
-                    ]),
+                              },
+                              [_vm._v("Bewerken")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    _vm.deleteArticle(article.id, index)
+                                  }
+                                }
+                              },
+                              [_vm._v("Verwijderen")]
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
-                    typeof article.category != "undefined"
-                      ? _c("h6", { staticClass: "card-subtitle text-muted" }, [
-                          _vm._v("In "),
-                          _c(
-                            "span",
-                            { staticClass: "badge badge-pill badge-primary" },
-                            [_vm._v(_vm._s(article.category.title))]
-                          )
-                        ])
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-body" },
-                    [
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(article.body))
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(
+                          "Op " +
+                            _vm._s(_vm.parseDate(article.created_at)) +
+                            " door "
+                        ),
+                        _c(
+                          "span",
+                          { staticClass: "badge badge-pill badge-secondary" },
+                          [_vm._v(_vm._s(article.author))]
+                        )
                       ]),
                       _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "card-link",
-                          attrs: { to: "/view/" + article.id }
-                        },
-                        [_vm._v("Lees meer...")]
-                      )
-                    ],
-                    1
-                  )
-                ])
-              ])
+                      typeof article.category != "undefined"
+                        ? _c(
+                            "h6",
+                            { staticClass: "card-subtitle text-muted" },
+                            [
+                              _vm._v("In "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "badge badge-pill badge-primary"
+                                },
+                                [_vm._v(_vm._s(article.category.title))]
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(article.body))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "card-link",
+                            attrs: { to: "/view/" + article.id }
+                          },
+                          [_vm._v("Lees meer...")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]
+              )
             })
           : _c("div", { staticClass: "col-md-12" }, [
               _c(
