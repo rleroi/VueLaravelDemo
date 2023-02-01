@@ -1,4 +1,4 @@
-# LaraVueCrud
+# Laravel PHP & VueJS Demo
 Simple single page CRUD application using Laravel and Vue.js
 
 # Installation
